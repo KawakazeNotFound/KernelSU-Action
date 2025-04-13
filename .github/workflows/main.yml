@@ -6,7 +6,7 @@ env:
   device: guacamoleb
   clang_version: r416183b
   defconfig: |
-    oplus7_config
+    defconfig
   kernel_patch: |
     backport-path-umount.patch
   kernelsu_patch: |
