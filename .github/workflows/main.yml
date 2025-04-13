@@ -182,7 +182,14 @@ jobs:
 
       - name: Make
         run: |
-          make $flags -j$(nproc --all)
+          set -e
+          make $flags -j$(nproc --all) 2>&1 | tee build.log
+
+      - name: "Upload logs"
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-logs
+          path: build.log
 
       - name: AnyKernel3
         run: |
